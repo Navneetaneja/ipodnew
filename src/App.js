@@ -39,7 +39,8 @@ class App extends React.Component{
       mainscreen:"../mainscreen.webp",
       back:"../mainscreen.webp",
       time:new Date(),
-      wid:window.innerWidth
+      wid:window.innerWidth,
+      hid:false
     }
   }
   
@@ -154,13 +155,14 @@ class App extends React.Component{
         })
         break;
       case 3:
-        document.getElementById("moreitems").innerHTML='<object style="width:100%;height:100%" type="text/html" data="https://feedbackstar.netlify.app/"></object>';
         this.setState({
           dropdown:false,
           back:"",
           items:menu,
           flag:40
         })
+        document.getElementById("moreitems").innerHTML='<object style="width:100%;height:100%" type="text/html" data="https://feedbackstar.netlify.app/"></object>';
+        
         break;
       default:
     }
@@ -390,6 +392,7 @@ class App extends React.Component{
           break;
         case 2:
           document.getElementById("moreitems").innerHTML='<object style="width:100%;height:100%" type="text/html" data="https://tictactoet3.netlify.app/"></object>';
+          
           this.setState({
             back:"",
             dropdown:false,
@@ -415,6 +418,13 @@ class App extends React.Component{
   }
 
 /* To change Dropdown menu to submenu on click of music item */
+
+// hide=()=>{
+//   // console.log(1);
+//   this.setState({
+//     hid:true
+//   })
+// }
 
   changeMenu=()=>{
     if(this.state.flag===0)
@@ -478,10 +488,16 @@ class App extends React.Component{
   }
 
   changeUp=()=>{
+    if(this.state.wid<=400)
+    {
     this.changeMobileIndex(1);
+    }
   }
   changeDown=()=>{
+    if(this.state.wid<=400)
+    {
     this.changeMobileIndex(-1);
+    }
   }
 
 /* Component Did Mount for using ZingTouch */
@@ -501,7 +517,6 @@ class App extends React.Component{
     this.interval=setInterval(()=>{
       this.setState({
         time:new Date(),
-        wid:window.innerWidth
       })
     },1000);
   }
@@ -510,6 +525,7 @@ class App extends React.Component{
   {
     clearInterval(this.interval);
   }
+
   
   render()
   {
@@ -524,6 +540,8 @@ class App extends React.Component{
     </>
     :
     <div style={{height:"100%",width:"100%"}} id="moreitems">
+      {/* <div style={{display:`${this.state.hid?"none":"block"}`}} id="loading">Connecting...</div> */}
+      {/* <div id="moreitems"></div> */}
     </div>;
 
     return(
