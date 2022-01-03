@@ -7,7 +7,7 @@ import 'firebase/compat/firestore';
 var menu=["Cover Flow","Music","More","Feedback"];
 var submenu=["English","Hindi","Punjabi"];
 var covers=["Nature","Desktop","Creative","Beach"];
-var more=["StopWatch","Calculator","Tic tac toe","Play Swapping"];
+var more=["StopWatch","Calculator","Tic tac toe","Weather"];
 
 var coversImages=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5-egb2XyOBFdyuZ96-pMNeYJHdzRq7_cVJA&usqp=CAU",
 "https://wallpaperaccess.com/full/196111.jpg",
@@ -400,7 +400,7 @@ class App extends React.Component{
           })
           break;
           case 3:
-          document.getElementById("moreitems").innerHTML='<object style="width:100%;height:100%" type="text/html" data="https://navneetaneja.github.io/SwappingOfDivs/image_animation.html"></object>';
+          document.getElementById("moreitems").innerHTML='<object style="width:100%;height:100%" type="text/html" data="https://weatherindia.netlify.app"></object>';
           this.setState({
             back:"",
             dropdown:false,
